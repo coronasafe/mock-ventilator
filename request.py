@@ -2,7 +2,7 @@ import requests
 import json
 import time
 
-with open('mock_data/data.txt', 'r') as f:
+with open('mock_data/data.json', 'r') as f:
     data = '[' + f.read()[:-1] + ']'
     data = json.loads(data)
 
