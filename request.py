@@ -13,8 +13,8 @@ API_ENDPOINT = "http://{0}:8090/update_observations".format(os.getenv('middlewar
 while True:
     for req_data in data:
         try:
-            print (len(req_data), flush=True)
-            r = requests.post(url=API_ENDPOINT, data=json.dumps(req_data))
+            print(len(req_data), flush=True)
+            r = requests.post(url=API_ENDPOINT, data=json.dumps(req_data), headers={'Content-Type': 'application/json'})
             print("The response is: %s" % r.text)
         except Exception as e:
             print(e)
