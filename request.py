@@ -34,7 +34,7 @@ def mock_cns():
         try:
             r = requests.post(url=API_ENDPOINT, data=json.dumps(list_of_lists),
                               headers={'Content-Type': 'application/json'})
-            print("The response is: %s" % r.text)
+            # print("The response is: %s" % r.text)
         except Exception as e:
             print(e)
         time.sleep(4)
