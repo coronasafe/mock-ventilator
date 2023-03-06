@@ -10,6 +10,15 @@ with open('mock_data/data.json', 'r') as f:
 API_ENDPOINT = "http://{0}:8090/update_observations".format(os.getenv('middleware_ip', 'teleicu_middleware'))
 # API_ENDPOINT = "http://127.0.0.1:8090/update_observations"
 
+list_of_lists_of_lists = data[:]
+for list_of_lists in list_of_lists_of_lists:
+    for list_of_dicts in list_of_lists:
+        for dict_ in list_of_dicts:
+            # get current time in the format '2023-02-20 18:05:32'
+            current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+            dict_['date-time'] = current_time
+
+data = list_of_lists_of_lists[:]
 while True:
     for req_data in data:
         try:
