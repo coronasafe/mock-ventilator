@@ -2,8 +2,7 @@ import requests
 import json
 import time
 import os
-from datetime import datetime
-
+from datetime import datetime, timedelta
 with open('mock_data/data.json', 'r') as f:
     data = '[' + f.read()[:-1] + ']'
     data = json.loads(data)
@@ -15,7 +14,11 @@ API_ENDPOINT = "http://{0}:8090/update_observations".format(os.getenv('middlewar
 
 
 def update_date_time(list_of_lists):
-    now = datetime.now()
+
+    # get current time in UTC
+    now = datetime.utcnow()
+    # add 5:30 hours to the current time
+    now = now + timedelta(hours=5, minutes=30)
     current_time = now.strftime("%Y-%m-%d %H:%M:%S")
     print("Current Time =", current_time)
     for list_of_dicts in list_of_lists:
