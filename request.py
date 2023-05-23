@@ -8,7 +8,7 @@ with open("mock_data/data.json", "r") as f:
     data = f.read()
     data = json.loads(data)
 
-API_ENDPOINT = "https://{0}:8090/update_observations".format(
+API_ENDPOINT = "https://{0}/update_observations".format(
     os.getenv("middleware_ip", "teleicu_middleware")
 )
 
@@ -41,7 +41,7 @@ def mock_cns():
                 data=json.dumps(list_of_lists),
                 headers={"Content-Type": "application/json"},
             )
-            print("The response is: %s" % r)
+            # print("The response is: %s" % r.text)
         except Exception as e:
             print(e)
         time.sleep(4)
