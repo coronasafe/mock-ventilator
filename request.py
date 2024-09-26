@@ -8,7 +8,7 @@ with open("mock_data/data.json", "r") as f:
     data = f.read()
     data = json.loads(data)
 
-API_ENDPOINT = "http://{0}:8090/update_observations".format(os.getenv('middleware_ip', 'localhost'))
+API_ENDPOINT = "http://{0}:8090/update_observations".format(os.getenv('middleware_ip', 'teleicu_middleware'))
 
 
 # API_ENDPOINT = "http://127.0.0.1:8090/update_observations"
